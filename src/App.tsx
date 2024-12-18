@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import axios from "axios"
 
 function App() {
   const [backendData, setBackendData] = useState([{}]);
 
+  const fetchAPI = async () => {
+    const response = await axios.get("http://localhost:5000/api");
+    console.log(response.data.users);
+  };
+
   useEffect(() => {
-    fetch("/api").then(
-      response => response.json()
-    ).then(
-      data => {
-        setBackendData(data)
-      }
-    );
+    fetchAPI();
   }, []);
 
   console.log(backendData);
