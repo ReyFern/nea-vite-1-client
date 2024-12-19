@@ -19,6 +19,13 @@ function App() {
 
   return (
     <div>
+      <ul className='navbar'>
+        <li className='navbar-element'><a href="/profile">Profile</a></li>
+        <li className='navbar-element'><a href='/party'>Party</a></li>
+        <li className='navbar-element'><a href='/create'>Character Creator</a></li>
+        <li className='navbar-element'><a href='/'>Home</a></li>
+      </ul>
+
       <h1>Welcome!</h1>
       {
         backendData.map((user, index) => (
