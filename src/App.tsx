@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import reactLogo from './assets/react.svg'
 import axios from "axios"
 
 function App() {
@@ -20,7 +21,8 @@ function App() {
   return (
     <div>
       <ul className='navbar'>
-        <li className='navbar-element'><a href="/profile">Profile</a></li>
+        <a href='/'><img src={reactLogo} className="navbar-logo" alt="React logo"></img></a>
+        <li className='navbar-element'><a href='/profile'>Profile</a></li>
         <li className='navbar-element'><a href='/party'>Party</a></li>
         <li className='navbar-element'><a href='/create'>Character Creator</a></li>
         <li className='navbar-element'><a href='/'>Home</a></li>
