@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
-import './App.css'
-import reactLogo from './assets/react.svg'
-import axios from "axios"
+import { useState, useEffect } from 'react';
+import './App.css';
+import axios from 'axios';
+import Navbar from './components/Navbar';
 
 function App() {
   const [backendData, setBackendData] = useState([]);
@@ -20,14 +20,8 @@ function App() {
 
   return (
     <div>
-      <ul className='navbar'>
-        <a href='/'><img src={reactLogo} className="navbar-logo" alt="React logo"></img></a>
-        <li className='navbar-element'><a href='/profile'>Profile</a></li>
-        <li className='navbar-element'><a href='/party'>Party</a></li>
-        <li className='navbar-element'><a href='/create'>Character Creator</a></li>
-        <li className='navbar-element'><a href='/'>Home</a></li>
-      </ul>
-
+      <Navbar/>
+      
       <h1>Welcome!</h1>
       <div>{backendData}</div>
       {
