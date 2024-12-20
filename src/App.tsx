@@ -8,8 +8,8 @@ function App() {
 
   const fetchAPI = async () => {
     const response = await axios.get("http://localhost:5000/api");
-    setBackendData(response.data.users);
-    console.log(response.data.users);
+    setBackendData(response.data.username);
+    console.log(response.data.username);
   };
 
   useEffect(() => {
@@ -29,13 +29,14 @@ function App() {
       </ul>
 
       <h1>Welcome!</h1>
+      <div>{backendData}</div>
       {
-        backendData.map((user, index) => (
-          <div key={index}>
-            <p>{user}</p>
-            <br/>
-          </div>
-        ))
+        //backendData.map((user, index) => (
+        //  <div key={index}>
+        //    <p>{user}</p>
+        //    <br/>
+        //  </div>
+        //))
       }
     </div>
   )
