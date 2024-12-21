@@ -3,7 +3,7 @@ import './App.css';
 import axios from 'axios';
 import Navbar from './components/Navbar';
 
-function App() {
+export default function App() {
   const [backendData, setBackendData] = useState([]);
 
   const fetchAPI = async () => {
@@ -35,5 +35,3 @@ function App() {
     </div>
   )
 }
-
-export default App

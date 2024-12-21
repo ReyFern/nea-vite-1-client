@@ -5,6 +5,7 @@ import App from './App.tsx'
 import CreateCharacter from './pages/CreateCharacter.tsx'
 import Party from './pages/Party.tsx'
 import Profile from './pages/Profile.tsx'
+import Register from './pages/Register.tsx'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -13,19 +14,27 @@ import {
 const router = createBrowserRouter([
   {
     path: "",
-    element: <App />,
+    element: <App />
   },
   {
     path: "/CreateCharacter",
-    element: <CreateCharacter />,
+    element: <CreateCharacter />
   },
   {
     path: "/Party",
-    element: <Party />,
+    element: <Party />
   },
   {
     path: "/Profile",
-    element: <Profile />,
+    element: <Profile />
+  },
+  {
+    path: "/Register",
+    element: <Register />
+  },
+  {
+    path: "/register-request",
+    element: <Register />
   }
 ]);
 
