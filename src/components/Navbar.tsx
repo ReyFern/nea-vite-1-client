@@ -5,10 +5,10 @@ export default function Navbar() {
     return (
         <ul className='navbar'>
             <a href='/'><img src={reactLogo} className="navbar-logo" alt="React logo"></img></a>
-            <li className='navbar-element'><a href='/Profile'>Profile</a></li>
-            <li className='navbar-element'><a href='/Party'>Party</a></li>
-            <li className='navbar-element'><a href='/CreateCharacter'>Character Creator</a></li>
-            <li className='navbar-element'><a href='/'>Home</a></li>
+            <a href='/Profile'><li className='navbar-element'>Profile</li></a>
+            <a href='/Party'><li className='navbar-element'>Party</li></a>
+            <a href='/CreateCharacter'><li className='navbar-element'>Character Creator</li></a>
+            <a href='/'><li className='navbar-element'>Home</li></a>
         </ul>
     );
 }
