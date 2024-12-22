@@ -1,16 +1,6 @@
-import axios from 'axios';
 import Navbar from '../components/Navbar';
 
 export default function Register() {
-    const fetchAPI = async () => {
-        axios.post("http://localhost:5000/register-request", "Hello!")
-        .then((response) => {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-    };
 
     return (
         <div>
