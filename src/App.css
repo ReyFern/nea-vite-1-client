@@ -31,3 +31,9 @@
 button {
   margin: 8px;
 }
+
+.input-num {
+  width: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+}

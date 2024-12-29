@@ -1,12 +1,12 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
-import CreateCharacter from './pages/CreateCharacter.tsx'
-import Party from './pages/Party.tsx'
-import Profile from './pages/Profile.tsx'
-import Register from './pages/Register.tsx'
-import SignIn from './pages/SignIn.tsx'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './index.css';
+import App from './App.tsx';
+import CreateCharacter from './pages/CreateCharacter.tsx';
+import Party from './pages/Party.tsx';
+import Profile from './pages/Profile.tsx';
+import Register from './pages/Register.tsx';
+import SignIn from './pages/SignIn.tsx';
 import {
   createBrowserRouter,
   RouterProvider,
