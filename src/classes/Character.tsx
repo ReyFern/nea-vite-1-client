@@ -19,7 +19,6 @@ export default class Character {
     private maxHitPoints:number = 0;
     private traits:string = "";
     private feats:string = "";
-
     private skills:{[id:string]:number} = {
         'acrobatics': 0,
         'animalHandling': 0,
