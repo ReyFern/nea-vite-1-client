@@ -14,7 +14,7 @@ export default function Register() {
                 <input type="text" id="password" name="password"/><br/><br/>
                 <label htmlFor="confPassword">Confirm Password: </label>
                 <input type="text" id="confPassword" name="confPassword"/><br/><br/>
-                <input type="submit" value="Submit"/>
+                <input type="submit" value="Submit" className='submit-input'/>
             </form>
         </div>
     );

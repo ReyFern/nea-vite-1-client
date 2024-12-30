@@ -140,7 +140,7 @@ export default function CreateCharacter() {
                 (document.getElementById("wisdom") as HTMLInputElement).value = String(character.getWisdom());
                 (document.getElementById("charisma") as HTMLInputElement).value = String(character.getCharisma());
             }}
-            >Roll</button>
+            className='roll-button'>Roll</button>
             <select id="rollMethod" name="rollMethod">
                 <option value="3d6" key="3d6">3d6</option>
                 <option value="4d6-drop-lowest" key="4d6-drop-lowest">4d6 drop lowest</option>

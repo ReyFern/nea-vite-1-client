@@ -37,3 +37,8 @@ button {
   margin-left: 10px;
   margin-right: 10px;
 }
+
+.roll-button {
+  color: aquamarine;
+  border-color: aquamarine;
+}
