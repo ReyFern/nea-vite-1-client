@@ -19,6 +19,36 @@ export default function CreateCharacter() {
         return array;
     }
 
+    function modifiers(statScores:{[id:string]:number}): {[id:string]:number} {
+        let statMods:{[id: string]:number} = {
+            "strength": 0, 
+            "dexterity": 0, 
+            "constitution": 0, 
+            "intelligence": 0, 
+            "wisdom": 0, 
+            "charisma": 0
+        };
+        for (let i = 0; i < Object.keys(statMods).length; i++) {
+            if (statScores[Object.keys(statScores)[i]] < 10) {
+                statMods[Object.keys(statMods)[i]] = Math.floor((statScores[Object.keys(statScores)[i]] - 10) / 2);
+            }
+            else {
+                statMods[Object.keys(statMods)[i]] = Math.floor((statScores[Object.keys(statScores)[i]] - 10) / 2);
+            }
+        }
+        return statMods;
+    }
+    function modifier(statScore:number): number {
+        let modifier:number = 0;
+        if (statScore < 10) {
+            modifier = Math.floor((statScore - 10) / 2);
+        }
+        else {
+            modifier = Math.floor((statScore - 10) / 2);
+        }
+        return modifier;
+    }
+
     function roll3d6(): number {
         var abilityScore = 0;
         for (let i = 0; i < 3; i++){
@@ -147,7 +177,12 @@ export default function CreateCharacter() {
                 <option value="5d6-drop-middle" key="5d6-drop-middle">5d6 drop middle</option>
                 <option value="1d20" key="1d20">1d20</option>
                 <option value="manual" key="manual">Manual input</option>
-            </select>
+            </select><br/><br/><br/><br/>
+            <label htmlFor='hitPoints'>HP:</label>
+            <input type="number" id="hitPoints" value="0" className='input-num'/>
+            <button>Roll</button>
+            <button>Average</button>
+            <button>Max</button>
         </div>
     );
 }
