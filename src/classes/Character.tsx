@@ -65,6 +65,16 @@ export default class Character {
         return (this.skills[skill] || this.skills['default']);
     }
 
+    public getStats() {
+        return this.statScores;
+    }
+    public setStats(strength:number, dexterity:number, constitution:number, intelligence:number, wisdom:number, charisma:number) {
+        let stats = [strength, dexterity, constitution, intelligence, wisdom, charisma];
+        for (let i = 0; i < Object.keys(this.statScores).length; i++) {
+            this.statScores[Object.keys(this.statScores)[i]] = stats[i];
+        }
+    }
+
     public getStrength() {
         return this.statScores["strength"];
     }
