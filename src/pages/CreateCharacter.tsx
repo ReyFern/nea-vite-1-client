@@ -5,10 +5,51 @@ import Character from '../classes/Character.tsx';
 export default function CreateCharacter() {
     const classes = ["Artificer", "Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"];
 
+    function bubbleSort(array:number[]): number[] {
+        var temp = 0;
+        for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < (array.length - i - 1); j++) {
+                if (array[j] > array[j + 1]) {
+                    temp = array[j + 1];
+                    array[j + 1] = array[j];
+                    array[j] = temp;
+                }
+            }
+        }
+        return array;
+    }
+
     function roll3d6(): number {
         var abilityScore = 0;
         for (let i = 0; i < 3; i++){
             abilityScore += Math.floor(Math.random() * 6) + 1;
+        }
+        return abilityScore;
+    }
+
+    function roll4d6DropLowest(): number {
+        var abilityScore = 0;
+        var dice = [0, 0, 0, 0];
+        for (let i = 0; i < dice.length; i++){
+            dice[i] = Math.floor(Math.random() * 6) + 1;
+        }
+        dice[dice.indexOf(Math.min(...dice))] = 0;
+        for (let i = 0; i < dice.length; i++) {
+            abilityScore += dice[i];
+        }
+        return abilityScore;
+    }
+
+    function roll5d6DropMiddle(): number {
+        var abilityScore = 0;
+        var dice = [0, 0, 0, 0, 0];
+        for (let i = 0; i < dice.length; i++){
+            dice[i] = Math.floor(Math.random() * 6) + 1;
+        }
+        var sortedDice = bubbleSort(dice);
+        sortedDice[2] = 0;
+        for (let i = 0; i < dice.length; i++) {
+            abilityScore += dice[i];
         }
         return abilityScore;
     }
@@ -59,6 +100,38 @@ export default function CreateCharacter() {
                     character.setWisdom(roll3d6());
                     character.setCharisma(roll3d6());
                 }
+                else if (rollMethod == "4d6-drop-lowest") {
+                    character.setStrength(roll4d6DropLowest());
+                    character.setDexterity(roll4d6DropLowest());
+                    character.setConstitution(roll4d6DropLowest());
+                    character.setIntelligence(roll4d6DropLowest());
+                    character.setWisdom(roll4d6DropLowest());
+                    character.setCharisma(roll4d6DropLowest());
+                }
+                else if (rollMethod == "5d6-drop-middle") {
+                    character.setStrength(roll5d6DropMiddle());
+                    character.setDexterity(roll5d6DropMiddle());
+                    character.setConstitution(roll5d6DropMiddle());
+                    character.setIntelligence(roll5d6DropMiddle());
+                    character.setWisdom(roll5d6DropMiddle());
+                    character.setCharisma(roll5d6DropMiddle());
+                }
+                else if (rollMethod == "1d20") {
+                    character.setStrength(Math.floor(Math.random() * 20) + 1);
+                    character.setDexterity(Math.floor(Math.random() * 20) + 1);
+                    character.setConstitution(Math.floor(Math.random() * 20) + 1);
+                    character.setIntelligence(Math.floor(Math.random() * 20) + 1);
+                    character.setWisdom(Math.floor(Math.random() * 20) + 1);
+                    character.setCharisma(Math.floor(Math.random() * 20) + 1);
+                }
+                else if (rollMethod == "manual") {
+                    character.setStrength(0);
+                    character.setDexterity(0);
+                    character.setConstitution(0);
+                    character.setIntelligence(0);
+                    character.setWisdom(0);
+                    character.setCharisma(0);
+                }
 
                 (document.getElementById("strength") as HTMLInputElement).value = String(character.getStrength());
                 (document.getElementById("dexterity") as HTMLInputElement).value = String(character.getDexterity());
@@ -71,7 +144,8 @@ export default function CreateCharacter() {
             <select id="rollMethod" name="rollMethod">
                 <option value="3d6" key="3d6">3d6</option>
                 <option value="4d6-drop-lowest" key="4d6-drop-lowest">4d6 drop lowest</option>
-                <option value="5d6-drop-middle" key="5d6-drop-middle">4d6 drop middle</option>
+                <option value="5d6-drop-middle" key="5d6-drop-middle">5d6 drop middle</option>
+                <option value="1d20" key="1d20">1d20</option>
                 <option value="manual" key="manual">Manual input</option>
             </select>
         </div>
