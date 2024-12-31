@@ -1,7 +1,21 @@
 import Navbar from '../components/Navbar';
 import '../App.css';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 export default function Profile() {
+    const [backendData, setBackendData] = useState([]);
+
+    const fetchAPI = async () => {
+        const response = await axios.get("http://localhost:5000/auth");
+        setBackendData(response.data.auth);
+        console.log(response.data.auth);
+    };
+
+    useEffect(() => {
+        fetchAPI();
+    }, []);
+
     return (
         <div>
             <Navbar/>

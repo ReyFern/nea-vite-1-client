@@ -89,6 +89,7 @@ export default function CreateCharacter() {
     return (
         <div>
             <Navbar/>
+            <br/><br/><br/><br/>
             <h4>What's your name, race, class & level?</h4>
             <input type="text" id="name" name="name" placeholder="Character Name"/><br/><br/>
             <label htmlFor="level">Level: </label>
@@ -183,6 +184,7 @@ export default function CreateCharacter() {
             <button>Roll</button>
             <button>Average</button>
             <button>Max</button>
+            <div className='next-button'><button>Next <b>→</b></button></div>
         </div>
     );
 }

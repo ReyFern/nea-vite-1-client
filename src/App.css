@@ -42,3 +42,9 @@ button {
   color: aquamarine;
   border-color: aquamarine;
 }
+
+.next-button {
+  position:absolute;
+  left: 85%;
+  bottom: 5%;
+}
