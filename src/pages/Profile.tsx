@@ -1,27 +1,12 @@
 import Navbar from '../components/Navbar';
 import '../App.css';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
 
 export default function Profile() {
-    const [backendData, setBackendData] = useState([]);
-    let signedIn:string = "unauthorised";
-
-    const fetchAPI = async () => {
-        const response = await axios.get("http://localhost:5000/signin-request");
-        setBackendData(response.data.auth);
-        console.log(response.data.auth);
-        if (response.data.auth == "success"){
-            signedIn = "authorised";
-            localStorage.setItem("token", signedIn);
-        }
-    };
 
     if (sessionStorage.getItem("token") == "authorised") {
         return (
             <div>
                 <Navbar/>
-                <div>{backendData}</div>
                 <h2>Logged in</h2>
             </div>
         );
