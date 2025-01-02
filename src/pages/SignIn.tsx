@@ -1,28 +1,28 @@
 import Navbar from '../components/Navbar';
 import '../App.css';
-import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 export default function SignIn() {
-    const [backendData, setBackendData] = useState([]);
 
     const fetchAPI = async () => {
-        const response = await axios.get("http://localhost:5000/signin-request");
-        setBackendData(response.data.auth);
-        console.log(response.data.auth);
+        axios.get("http://localhost:5000/signin-request").then((token) => {
+            sessionStorage.setItem("token", token.data.auth);
+            console.log(sessionStorage.getItem("token"));
+            location.href = "/Profile";
+        });
     }
 
     const apiCall = () => {
         axios.get('http://localhost:5000/signin-request').then((data) => {
           //this console.log will be in our frontend console
-          localStorage.setItem("token", data.data);
+          sessionStorage.setItem("token", data.data);
           console.log(localStorage.getItem("token"));
         });
     }
 
-    localStorage.setItem("token", "unauthorised");
+    sessionStorage.setItem("token", "unauthorised");
 
-    if (localStorage.getItem("token") == "unauthorised") {
+    if (sessionStorage.getItem("token") == "unauthorised") {
         return (
             <div>
                 <Navbar/>
@@ -36,5 +36,10 @@ export default function SignIn() {
                 </form>
             </div>
         )
+    };
+    if (sessionStorage.getItem("token") == "authorised") {
+        return (
+            <div>Logged In</div>
+        );
     };
 }

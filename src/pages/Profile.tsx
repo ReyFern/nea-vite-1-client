@@ -17,9 +17,7 @@ export default function Profile() {
         }
     };
 
-    localStorage.setItem("token", "unauthorised");
-
-    if (localStorage.getItem("token") == "authorised") {
+    if (sessionStorage.getItem("token") == "authorised") {
         return (
             <div>
                 <Navbar/>
@@ -32,7 +30,6 @@ export default function Profile() {
         return (
             <div>
                 <Navbar/>
-                <div>{backendData}</div>
                 <h2>It seems you aren't logged in.</h2>
                 <h2>You can register if you are a new user or log in if you are a returning user.</h2>
                 <a href="/Register"><button><h2>Register</h2></button></a>
